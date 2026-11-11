@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: ms_produto
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ms_produto
+    shm_size: 128mb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgres/data
+
+volumes:
+  pgdata:
